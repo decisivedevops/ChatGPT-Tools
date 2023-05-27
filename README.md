@@ -2,15 +2,15 @@
 
 This repository contains handy tools to enhance your experience when interacting with ChatGPT:
 
-1. **ChatGPT Prompt Splitter**: A tool to split large text prompts into smaller, manageable chunks.
+1. **Prompt Splitter**: A tool to split large text prompts into smaller, manageable chunks.
 2. **Prompt Appender**: A simple tool to combine multiple text inputs into one unified output.
 
 All tools are built using just HTML and JavaScript, so they're lightweight, quick to load, and can be used offline.
 
-## ChatGPT Prompt Splitter
+## Prompt Splitter
 
 <details closed>
-<summary>The ChatGPT Prompt Splitter tool helps to bypass the character limit when working with language models like ChatGPT. It lets you input a long text and splits it into smaller chunks suitable for the language model.</summary>
+<summary>The Prompt Splitter tool helps to bypass the character limit when working with language models like ChatGPT. It lets you input a long text and splits it into smaller chunks suitable for the language model.</summary>
 
 ### Key Features
 
@@ -28,13 +28,13 @@ The tool can be utilized in numerous scenarios such as:
 
 </details>
 
-For a more detailed overview, usage examples and code, please refer to the [ChatGPT Prompt Splitter README](./Prompt-Splitter/README.md).
+For a more detailed overview, usage examples and code, please refer to the [Prompt Splitter README](./Prompt-Splitter/README.md).
 
 ## Prompt Appender
 
 
 <details closed>
-<summary>The **Prompt Appender** is a versatile tool that lets you create a series of text inputs (boxes), and combines their content into one final output. This could be especially handy when you want to append or modify the contents of text sequentially.</summary>
+<summary>The Prompt Appender is a versatile tool that lets you create a series of text inputs (boxes), and combines their content into one final output. This could be especially handy when you want to append or modify the contents of text sequentially.</summary>
 
 ### Key Features
 
