@@ -17,6 +17,8 @@ Suppose you have a long piece of text that exceeds the character limit of ChatGP
 
 For example, if you have a 25,000-character text, you could split it into three chunks of approximately 8,333 characters each. You would input the text and the maximum length per chunk (8333) into the tool. After clicking "Split Text", you'll get three chunks of text that you can then input into the language model one by one.
 
+![](../assets/Prompt-Splitter.jpg)
+
 ## How it Works
 The tool uses a simple JavaScript function to split the text into smaller chunks. The function is based on the following rules:
 

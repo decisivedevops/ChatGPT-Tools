@@ -15,7 +15,10 @@ Finally, the user can copy the appended text from the final box with a single bu
 
 2. **Review Generator:** Let's say you're a blogger or a reviewer who often covers similar types of products or services. You can put your general review structure in the first box and then include the specific details of each item in the subsequent boxes. After merging, you get a complete, detailed review prompt to each item.
 
+![](../assets/Prompt-Appender.jpg)
+
 ## How it Works
+
 The tool leverages simple JavaScript functions to dynamically add and remove text boxes, merge the texts, count the words and characters, and copy the final text.
 
 ## Usage
