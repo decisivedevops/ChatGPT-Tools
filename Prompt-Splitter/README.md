@@ -25,16 +25,18 @@ The tool uses a simple JavaScript function to split the text into smaller chunks
 2. Each chunk contains a prefix and postfix that instructs the AI on the process of receiving and acknowledging the chunks, and to wait for the completion of chunk transmission before processing subsequent requests.
 
 ## Usage
-1. Open the `html` file in a web browser.
+1. Clone the repository using `git clone https://github.com/decisivedevops/ChatGPT-Tools.git`
 
-2. In the text area, input the text you want to split into smaller chunks for use with ChatGPT.
+2. Open `Prompt-Splitter/Prompt-Splitter.html` file in a web browser.
 
-3. In the input field below, you can specify a custom length for each chunk by entering the number of characters (default is 10,000).
+3. In the text area, input the text you want to split into smaller chunks for use with ChatGPT.
 
-4. Click the "Split Text" button to process the text and divide it into smaller chunks.
+4. In the input field below, you can specify a custom length for each chunk by entering the number of characters (default is 10,000).
 
-5. The application will display the text divided into smaller chunks. You can copy each chunk individually by clicking the "Copy" button next to it.
+5. Click the "Split Text" button to process the text and divide it into smaller chunks.
 
-6. Paste the copied chunks into ChatGPT or any other language model with character limitations.
+6. The application will display the text divided into smaller chunks. You can copy each chunk individually by clicking the "Copy" button next to it.
+
+7. Paste the copied chunks into ChatGPT or any other language model with character limitations.
 
 > Remember, this is just an HTML file. It doesn't save your data or send it anywhere. Once you close the file, all the text will be lost, so make sure to save your work elsewhere!

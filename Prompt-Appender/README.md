@@ -19,14 +19,15 @@ Finally, the user can copy the appended text from the final box with a single bu
 The tool leverages simple JavaScript functions to dynamically add and remove text boxes, merge the texts, count the words and characters, and copy the final text.
 
 ## Usage
-1. Open the `html` file in a web browser.
+1. Clone the repository using `git clone https://github.com/decisivedevops/ChatGPT-Tools.git`
 
-2. Use the 'Add Text Box' button to create additional text boxes. Enter separate pieces of text in each box.
+2. Open `Prompt-Appender/Prompt-Appender.html` file in a web browser.
+3. Use the 'Add Text Box' button to create additional text boxes. Enter separate pieces of text in each box.
 
-3. To merge the texts into a single piece, click the 'Update Text' button. The merged text will appear in the 'Final Text Box', and the total words and characters count will be displayed above.
+4. To merge the texts into a single piece, click the 'Update Text' button. The merged text will appear in the 'Final Text Box', and the total words and characters count will be displayed above.
 
-4. To copy the appended text, click the 'Copy text' button.
+5. To copy the appended text, click the 'Copy text' button.
 
-5. If you want to remove a text box, click the 'Remove Text Box' button. Note: The first two boxes cannot be removed.
+6. If you want to remove a text box, click the 'Remove Text Box' button. Note: The first two boxes cannot be removed.
 
 >  Remember, this is just an HTML file. It doesn't save your data or send it anywhere. Once you close the file, all the text will be lost, so make sure to save your work elsewhere!
