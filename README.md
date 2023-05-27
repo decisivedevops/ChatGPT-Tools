@@ -9,7 +9,8 @@ All tools are built using just HTML and JavaScript, so they're lightweight, quic
 
 ## ChatGPT Prompt Splitter
 
-The **ChatGPT Prompt Splitter** tool helps to bypass the character limit when working with language models like ChatGPT. It lets you input a long text and splits it into smaller chunks suitable for the language model.
+<details closed>
+<summary>The ChatGPT Prompt Splitter tool helps to bypass the character limit when working with language models like ChatGPT. It lets you input a long text and splits it into smaller chunks suitable for the language model.</summary>
 
 ### Key Features
 
@@ -25,11 +26,15 @@ The tool can be utilized in numerous scenarios such as:
 - Processing a long list of items through ChatGPT
 - Running a lengthy narrative through ChatGPT for story generation
 
+</details>
+
 For a more detailed overview, usage examples and code, please refer to the [ChatGPT Prompt Splitter README](./Prompt-Splitter/README.md).
 
 ## Prompt Appender
 
-The **Prompt Appender** is a versatile tool that lets you create a series of text inputs (boxes), and combines their content into one final output. This could be especially handy when you want to append or modify the contents of text sequentially.
+
+<details closed>
+<summary>The **Prompt Appender** is a versatile tool that lets you create a series of text inputs (boxes), and combines their content into one final output. This could be especially handy when you want to append or modify the contents of text sequentially.</summary>
 
 ### Key Features
 
@@ -41,6 +46,8 @@ The **Prompt Appender** is a versatile tool that lets you create a series of tex
 
 - **Customized Cover Letters**: Create a general cover letter template and add specific details for each job description in subsequent boxes to generate tailored cover letters for each job application.
 - **Review Generator**: Write a general review structure and add unique aspects of each item in subsequent boxes to generate comprehensive and customized reviews.
+
+</details>
 
 For a more detailed overview, usage examples and code, please refer to the [Prompt Appender README](./Prompt-Appender/README.md).
 
