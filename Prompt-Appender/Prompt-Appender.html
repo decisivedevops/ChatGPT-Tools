@@ -1,78 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Prompt Appender</title>
+    <style>
+        .textarea-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        textarea {
+            width: 45%;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
+
 <body>
 
-<h2>Text Box Appender</h2>
+    <h2>Text Box Appender</h2>
 
-<button onclick="addTextBox()">Add Text Box</button>
-<button onclick="removeTextBox()">Remove Text Box</button>
-<p id="count">Words: 0, Characters: 0</p>
+    <button onclick="addTextBox()">Add Text Box</button>
+    <button onclick="removeTextBox()">Remove Text Box</button>
+    <p id="count">Words: 0, Characters: 0</p>
 
-<div id="textboxes">
-    <div class="textbox" id="div_box1">
-        <h3>Box 1</h3>
-        <textarea class="box" id="box1" rows="10" cols="50" placeholder="Enter text1 here"></textarea>
+    <div id="textboxes">
+        <div class="textbox" id="div_box1">
+            <h3>Box 1</h3>
+            <textarea class="box" id="box1" rows="10" cols="50" placeholder="Enter text1 here"></textarea>
+        </div>
+        <br>
+        <div class="textbox" id="div_box2">
+            <h3>Box 2</h3>
+            <textarea class="box" id="box2" rows="10" cols="50" placeholder="Enter text2 here"></textarea>
+        </div>
     </div>
     <br>
-    <div class="textbox" id="div_box2">
-        <h3>Box 2</h3>
-        <textarea class="box" id="box2" rows="10" cols="50" placeholder="Enter text2 here"></textarea>
-    </div>
-</div>
-<br>
 
-<h3>Final Text Box (Appended Text)</h3>
-<textarea id="boxF" rows="10" cols="50" placeholder="Appended text will appear here"></textarea>
-<br><br>
-<button onclick="copyText()">Copy text</button>
-<button onclick="appendText()">Update Text</button>
+    <h3>Final Text Box (Appended Text)</h3>
+    <textarea id="boxF" rows="10" cols="50" placeholder="Appended text will appear here"></textarea>
+    <br><br>
+    <button onclick="copyText()">Copy text</button>
+    <button onclick="appendText()">Update Text</button>
 
-<script>
-var numTextBoxes = 2;
+    <script>
+        var numTextBoxes = 2;
 
-function addTextBox() {
-    numTextBoxes += 1;
-    var newTextBoxDiv = document.createElement("div");
-    newTextBoxDiv.setAttribute("class", "textbox");
-    newTextBoxDiv.setAttribute("id", "div_box" + numTextBoxes);
-    newTextBoxDiv.innerHTML = '<h3>Box ' + numTextBoxes + '</h3>' +
-                              '<textarea class="box" id="box' + numTextBoxes + '" rows="10" cols="50" placeholder="Enter text' + numTextBoxes + ' here"></textarea><br>';
-    document.getElementById('textboxes').appendChild(newTextBoxDiv);
-}
-
-function removeTextBox() {
-    if (numTextBoxes > 2) {
-        var textboxToRemove = document.getElementById('div_box' + numTextBoxes);
-        textboxToRemove.parentNode.removeChild(textboxToRemove);
-        numTextBoxes -= 1;
-    }
-}
-
-function appendText() {
-    var boxF = "";
-    for(var i = 1; i <= numTextBoxes; i++) {
-        var textBox = document.getElementById('box' + i);
-        if(textBox) {
-            boxF += textBox.value;
+        function addTextBox() {
+            numTextBoxes += 1;
+            var newTextBoxDiv = document.createElement("div");
+            newTextBoxDiv.setAttribute("class", "textbox");
+            newTextBoxDiv.setAttribute("id", "div_box" + numTextBoxes);
+            newTextBoxDiv.innerHTML = '<h3>Box ' + numTextBoxes + '</h3>' +
+                '<textarea class="box" id="box' + numTextBoxes + '" rows="10" cols="50" placeholder="Enter text' + numTextBoxes + ' here"></textarea><br>';
+            document.getElementById('textboxes').appendChild(newTextBoxDiv);
         }
-    }
-    document.getElementById('boxF').value = boxF;
 
-    var wordCount = boxF.split(/\s+/).filter(function(word) { return word.length > 0; }).length;
-    var charCount = boxF.length;
-    document.getElementById('count').textContent = "Words: " + wordCount + ", Characters: " + charCount;
-}
+        function removeTextBox() {
+            if (numTextBoxes > 2) {
+                var textboxToRemove = document.getElementById('div_box' + numTextBoxes);
+                textboxToRemove.parentNode.removeChild(textboxToRemove);
+                numTextBoxes -= 1;
+            }
+        }
 
-function copyText() {
-    var text = document.getElementById('boxF');
-    text.select();
-    document.execCommand("copy");
-    alert("Text copied to clipboard");
-}
-</script>
+        function appendText() {
+            var boxF = "";
+            for (var i = 1; i <= numTextBoxes; i++) {
+                var textBox = document.getElementById('box' + i);
+                if (textBox) {
+                    boxF += textBox.value;
+                }
+            }
+            document.getElementById('boxF').value = boxF;
+
+            var wordCount = boxF.split(/\s+/).filter(function (word) { return word.length > 0; }).length;
+            var charCount = boxF.length;
+            document.getElementById('count').textContent = "Words: " + wordCount + ", Characters: " + charCount;
+        }
+
+        function copyText() {
+            var text = document.getElementById('boxF');
+            text.select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard");
+        }
+    </script>
 
 </body>
+
 </html>

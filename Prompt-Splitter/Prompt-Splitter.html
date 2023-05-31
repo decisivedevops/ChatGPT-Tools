@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Prompt Splitter</title>
+    <style>
+        .textarea-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        textarea {
+            width: 45%;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
+
 <body>
     <h1>Prompt Splitter</h1>
     <h3>Input the text to be split:</h3>
@@ -17,62 +50,63 @@
     <div id="outputDiv"></div>
 
     <script>
-    function splitText() {
-        var inputText = document.getElementById('inputText').value;
-        var inputSize = document.getElementById('inputSize').value;
-        var outputDiv = document.getElementById('outputDiv');
+        function splitText() {
+            var inputText = document.getElementById('inputText').value;
+            var inputSize = document.getElementById('inputSize').value;
+            var outputDiv = document.getElementById('outputDiv');
 
-        // Clear previous output
-        outputDiv.innerHTML = '';
+            // Clear previous output
+            outputDiv.innerHTML = '';
 
-        var totalParts = Math.ceil(inputText.length / parseInt(inputSize));
+            var totalParts = Math.ceil(inputText.length / parseInt(inputSize));
 
-        // Split the text into chunks
-        for (let i = 0, charsLength = inputText.length; i < charsLength; i += parseInt(inputSize)) {
-            let chunkText = inputText.substring(i, i + parseInt(inputSize));
+            // Split the text into chunks
+            for (let i = 0, charsLength = inputText.length; i < charsLength; i += parseInt(inputSize)) {
+                let chunkText = inputText.substring(i, i + parseInt(inputSize));
 
-            var currentPart = i / parseInt(inputSize) + 1;
+                var currentPart = i / parseInt(inputSize) + 1;
 
-            let prefixText = '';
-            let postfixText = '';
+                let prefixText = '';
+                let postfixText = '';
 
-            if(currentPart == 1) {
-                prefixText = 'The total length of the content that I want to send you is too large to send in only one piece.\n'+
-                'For sending you that content, I will send the content in parts:\n\n';
+                if (currentPart == 1) {
+                    prefixText = 'The total length of the content that I want to send you is too large to send in only one piece.\n' +
+                        'For sending you that content, I will send the content in parts:\n\n';
+                }
+
+                if (currentPart < totalParts) {
+                    postfixText = '\nRemember not answering yet. Just acknowledge you received this part with the message "Part ' + currentPart + '/' + totalParts + ' received" and wait for the next part.';
+                } else {
+                    postfixText = '\nALL PARTS SENT. Now you can continue processing the request.';
+                }
+
+                chunkText = prefixText + '[START PART ' + currentPart + '/' + totalParts + ']\n' + chunkText + '\n[END PART ' + currentPart + '/' + totalParts + ']' + postfixText;
+
+                // Create new textarea for the chunk
+                let chunkTextArea = document.createElement('textarea');
+                chunkTextArea.rows = '10';
+                chunkTextArea.cols = '50';
+                chunkTextArea.value = chunkText;
+                chunkTextArea.readOnly = true;
+
+                // Create new copy button for the chunk
+                let copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy';
+                copyButton.onclick = function () {
+                    chunkTextArea.select();
+                    document.execCommand('copy');
+                };
+
+                // Append textarea and copy button to the output div
+                outputDiv.appendChild(chunkTextArea);
+                outputDiv.appendChild(copyButton);
+
+                // Add line break for better formatting
+                outputDiv.appendChild(document.createElement('br'));
             }
-
-            if(currentPart < totalParts) {
-                postfixText = '\nRemember not answering yet. Just acknowledge you received this part with the message "Part ' + currentPart + '/' + totalParts + ' received" and wait for the next part.';
-            } else {
-                postfixText = '\nALL PARTS SENT. Now you can continue processing the request.';
-            }
-
-            chunkText = prefixText + '[START PART ' + currentPart + '/' + totalParts + ']\n' + chunkText + '\n[END PART ' + currentPart + '/' + totalParts + ']' + postfixText;
-
-            // Create new textarea for the chunk
-            let chunkTextArea = document.createElement('textarea');
-            chunkTextArea.rows = '10';
-            chunkTextArea.cols = '50';
-            chunkTextArea.value = chunkText;
-            chunkTextArea.readOnly = true;
-
-            // Create new copy button for the chunk
-            let copyButton = document.createElement('button');
-            copyButton.textContent = 'Copy';
-            copyButton.onclick = function() {
-                chunkTextArea.select();
-                document.execCommand('copy');
-            };
-
-            // Append textarea and copy button to the output div
-            outputDiv.appendChild(chunkTextArea);
-            outputDiv.appendChild(copyButton);
-
-            // Add line break for better formatting
-            outputDiv.appendChild(document.createElement('br'));
         }
-    }
     </script>
 
 </body>
+
 </html>
