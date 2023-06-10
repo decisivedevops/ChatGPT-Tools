@@ -7,7 +7,7 @@ This repository contains handy tools to enhance your experience when interacting
 
 All tools are built using just HTML and JavaScript, so they're lightweight, quick to load, and can be used offline.
 
-[Quick Demo](https://chatgpt-tools.dd.decisivedevops.com/)
+[Quick Demo](https://chatgpt-tools.decisivedevops.com/)
 
 ## Prompt Splitter
 
